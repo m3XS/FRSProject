@@ -4,8 +4,8 @@ import os as os
 
 
 #Files
-path = 'C:/Users/Max/PycharmProjects/frProject/pic'
-base = 'C:/Users/Max/PycharmProjects/frProject'
+path = 'C:/Users/Max/PycharmProjects/FRSProject/pic'
+base = 'C:/Users/Max/PycharmProjects/FRSProject'
 
 
 #Model
@@ -68,3 +68,5 @@ with open(genuine_distance_file, 'w') as f:
 with open(impostor_distance_file, 'w') as f:
     for sc in impostor_distance:
         f.write("%s\n" % sc)
+
+print("Done!")

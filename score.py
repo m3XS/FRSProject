@@ -10,9 +10,11 @@ with open(impostor_distance_file, 'r') as f:
 with open(genuine_distance_file, 'r') as f:
     genuine_distance = numpy.asarray(f.read().splitlines(), dtype=float)
 
-#threshold for calculating
-t = 0.07
+#Threshold for calculating
+#DeepFace Threshold for: VGG-Face: 0.4, FaceNet: 0.4, OpenFace 0.1
+t = 0.08
 model = "OpenFace"
+
 print("------%s------" % model)
 print("threshold: " + str(t))
 print("-------------------------")
