@@ -13,12 +13,14 @@ with open(impostor_distance_file, 'r') as f:
 with open(genuine_distance_file, 'r') as f:
     genuine_distance = numpy.asarray(f.read().splitlines(), dtype=float)
 
-plt.legend(prop={'size': 3}, title='type')
+model = "FaceNet"
 sns.distplot(genuine_distance, hist=False, kde=True,
-             kde_kws={'shade': True, 'linewidth': 2},
+             kde_kws={'shade': False, 'linewidth': 2, 'clip': (0.0, 1.0)},
              label="genuine")
 sns.distplot(impostor_distance, hist=False, kde=True,
-             kde_kws={'shade': False, 'linewidth': 3},
+             kde_kws={'shade': False, 'linewidth': 2, 'clip': (0.0, 1.0)},
              label="impostor")
-
+plt.legend()
+plt.title(model)
+plt.savefig("density-%s.png" % model)
 plt.show()
