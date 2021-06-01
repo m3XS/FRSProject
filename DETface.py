@@ -19,22 +19,24 @@ impostor_distance_file_openface = os.path.join(local_path, 'distance/OpenFace/im
 # Read scores we saved
 #FaceNet
 with open(genuine_distance_file_facenet, 'r') as f:
-    genuine_distance_facenet = numpy.asarray(f.read().splitlines())
+    genuine_distance_facenet = numpy.asarray(f.read().splitlines()).astype('float32')
 
 with open(impostor_distance_file_facenet, 'r') as f:
-    impostor_distance_facenet = numpy.asarray(f.read().splitlines())
+    impostor_distance_facenet = numpy.asarray(f.read().splitlines()).astype('float32')
+
 #VGG-Face
 with open(genuine_distance_file_vgg, 'r') as f:
-    genuine_distance_vgg = numpy.asarray(f.read().splitlines())
+    genuine_distance_vgg = numpy.asarray(f.read().splitlines()).astype('float32')
 
 with open(impostor_distance_file_vgg, 'r') as f:
-    impostor_distance_vgg = numpy.asarray(f.read().splitlines())
+    impostor_distance_vgg = numpy.asarray(f.read().splitlines()).astype('float32')
+
 #OpenFace
 with open(genuine_distance_file_openface, 'r') as f:
-    genuine_distance_openface = numpy.asarray(f.read().splitlines())
+    genuine_distance_openface = numpy.asarray(f.read().splitlines()).astype('float32')
 
 with open(impostor_distance_file_openface, 'r') as f:
-    impostor_distance_openface = numpy.asarray(f.read().splitlines())
+    impostor_distance_openface = numpy.asarray(f.read().splitlines()).astype('float32')
 
 # Create and configure figure
 det = DET(biometric_evaluation_type='algorithm', plot_title='FMR-FNMR')
@@ -47,9 +49,9 @@ det.y_ticks = numpy.array([1e-3, 1e-2, 5e-2, 20e-2, 40e-2])
 det.y_ticklabels = numpy.array(['0.1', '1', '5', '20', '40'])
 
 det.create_figure()
-det.plot(tar=impostor_distance_facenet, non=genuine_distance_facenet, label='FaceNet')
-det.plot(tar=impostor_distance_vgg, non=genuine_distance_vgg, label='VGG-Face')
-det.plot(tar=impostor_distance_openface, non=genuine_distance_openface, label='OpenFace')
+det.plot(tar=-genuine_distance_facenet, non=-impostor_distance_facenet, label='FaceNet')
+det.plot(tar=-genuine_distance_vgg, non=-impostor_distance_vgg, label='VGG-Face')
+det.plot(tar=-genuine_distance_openface, non=-impostor_distance_openface, label='OpenFace')
 det.legend_on()
 
 # Save DET plot
