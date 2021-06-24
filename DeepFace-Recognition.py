@@ -14,8 +14,8 @@ selected_model = models[2]
 model = DeepFace.build_model(selected_model)
 
 #Impostor and Genuie
-total_number_subjects = 5     # 100 subjects for CasiaV5
-total_number_sessions = 1       # only 1 session in CasiaV5
+total_number_subjects = 20     # 100 subjects for CasiaV5
+#total_number_sessions = 1       # only 1 session in CasiaV5
 total_number_face = 4           # four faces for one session each subject CasiaV5
 extension = ".png"
 
