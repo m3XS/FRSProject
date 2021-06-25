@@ -13,7 +13,7 @@ with open(impostor_distance_file, 'r') as f:
 with open(genuine_distance_file, 'r') as f:
     genuine_distance = numpy.asarray(f.read().splitlines(), dtype=float)
 
-model = "FaceNet"
+model = "VGG-Face"
 sns.distplot(genuine_distance, hist=False, kde=True,
              kde_kws={'shade': False, 'linewidth': 2},
              label="genuine")

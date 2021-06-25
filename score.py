@@ -12,8 +12,8 @@ with open(genuine_distance_file, 'r') as f:
 
 #Threshold for calculating
 #DeepFace Threshold for: VGG-Face: 0.4, FaceNet: 0.4, OpenFace 0.1
-t = 0.08
-model = "OpenFace"
+t = 0.19
+model = "FaceNet"
 
 print("------%s------" % model)
 print("threshold: " + str(t))
